@@ -20,7 +20,7 @@ const styles = {
     fontFamily: fontInter,
   },
   outerPad: {
-    backgroundImage: 'url("../assets/bg.png")',
+    backgroundImage: 'url("https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/bg.png")',
     backgroundSize: '100% auto',
     backgroundPosition: 'center top',
     backgroundRepeat: 'repeat-y',
@@ -223,7 +223,7 @@ const styles = {
 
   // Social bar (inside card)
   socialBar: {
-    backgroundColor: '#0a1220',
+    backgroundColor: '#101E32',
     padding: '22px 30px',
     textAlign: 'center',
   },
@@ -279,10 +279,10 @@ export default function CyberZoneEmail({
       <Body style={styles.body}>
         <Section style={styles.outerPad}>
 
-          {/* ── 1. LOGO (hors carte, sur le bg) ──────── */}
+          {/* ── 1. LOGO  ──────── */}
           <Section style={styles.logoBar}>
             <Img
-              src="../assets/logo.png"
+              src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/logo.png"
               alt="CyberZone"
               width="160"
               height="auto"
@@ -296,7 +296,7 @@ export default function CyberZoneEmail({
             <Section style={styles.hero}>
               <Section style={{ textAlign: 'center', marginBottom: '22px' }}>
                 <Img
-                  src="../assets/icon1.png"
+                  src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/icon1.png"
                   alt="Bouclier CyberZone"
                   width="100"
                   height="100"
@@ -345,10 +345,10 @@ export default function CyberZoneEmail({
                 }}
               >
                 <Img
-                  src="../assets/lion.png"
+                  src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/lion.png"
                   alt="Lion IA CyberZone"
-                  width="180"
-                  height="auto"
+                  width="450px"
+                  height="300px"
                   style={{ margin: '0 auto', display: 'block' }}
                 />
               </Section>
@@ -446,10 +446,10 @@ export default function CyberZoneEmail({
 
             </Section>{/* /bodyPad */}
 
-            {/* ── 4. MAP / LOCALISATION ────────────────── */}
+            {/* ── 4. MAP ────────────────── */}
             <div style={styles.mapWrap}>
               <Img
-                src="https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/9.7679,4.0511,13,0/600x320@2x?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"
+                src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/map-douala.png"
                 alt="Carte Douala"
                 style={styles.mapImg}
                 width="600"
