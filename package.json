@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@react-email/components": "^1.0.12",
+    "lucide-react": "^1.21.0",
+    "react-email": "^6.6.5"
+  },
+  "scripts": {
+    "email": "email dev",
+    "email:export": "email export"
+  },
+  "devDependencies": {
+    "@react-email/ui": "^6.6.5"
+  }
+}
