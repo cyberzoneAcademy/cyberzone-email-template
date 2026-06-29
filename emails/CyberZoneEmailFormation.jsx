@@ -256,6 +256,7 @@ export default function CyberZoneEmail({
   return (
     <Html lang="fr">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Font
           fontFamily="Inter"
           fallbackFontFamily="Helvetica"
@@ -272,15 +273,31 @@ export default function CyberZoneEmail({
             format: 'woff2',
           }}
         />
+        <style>{`
+          @media only screen and (max-width: 620px) {
+            .outer-pad { padding: 16px 8px 28px !important; }
+            .body-pad { padding: 24px 20px 0 !important; }
+            .hero-section { padding: 32px 20px 28px !important; }
+            .logo-bar { padding: 12px 16px 16px !important; }
+            .amount-num { font-size: 36px !important; }
+            .amount-box { padding: 16px 18px !important; }
+            .lion-img { width: 100% !important; max-width: 300px !important; height: auto !important; }
+            .map-wrap { height: 280px !important; }
+            .location-card { width: 240px !important; padding: 20px 24px !important; }
+            .social-bar { padding: 18px 16px !important; }
+            .detail-label { font-size: 13px !important; }
+            .detail-value { font-size: 13px !important; }
+          }
+        `}</style>
       </Head>
 
       <Preview>Accès Autorisé : Paiement Validé – CyberZone</Preview>
 
       <Body style={styles.body}>
-        <Section style={styles.outerPad}>
+        <Section className="outer-pad" style={styles.outerPad}>
 
           {/* ── 1. LOGO  ──────── */}
-          <Section style={styles.logoBar}>
+          <Section className="logo-bar" style={styles.logoBar}>
             <Img
               src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/logo.png"
               alt="CyberZone"
@@ -293,7 +310,7 @@ export default function CyberZoneEmail({
           <Container style={styles.card}>
 
             {/* ── 2. HERO ─────────────────────────────── */}
-            <Section style={styles.hero}>
+            <Section className="hero-section" style={styles.hero}>
               <Section style={{ textAlign: 'center', marginBottom: '22px' }}>
                 <Img
                   src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/icon1.png"
@@ -309,7 +326,7 @@ export default function CyberZoneEmail({
             </Section>
 
             {/* ── 3. BODY ─────────────────────────────── */}
-            <Section style={styles.bodyPad}>
+            <Section className="body-pad" style={styles.bodyPad}>
 
               <Text style={styles.greeting}>Bonjour {prenom} !</Text>
 
@@ -347,22 +364,23 @@ export default function CyberZoneEmail({
                 <Img
                   src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/lion.png"
                   alt="Lion IA CyberZone"
-                  width="450px"
-                  height="300px"
-                  style={{ margin: '0 auto', display: 'block' }}
+                  width="450"
+                  height="300"
+                  className="lion-img"
+                  style={{ margin: '0 auto', display: 'block', maxWidth: '100%', height: 'auto' }}
                 />
               </Section>
 
               {/* Montant */}
               <div style={styles.amountBoxOuter}>
-                <Section style={styles.amountBox}>
+                <Section className="amount-box" style={styles.amountBox}>
                   <Row>
                     <Column style={{ verticalAlign: 'middle' }}>
                       <Text style={styles.amountLabel}>MONTANT RÉGLÉ</Text>
                       <Text style={styles.amountMotif}>Motif: {motif}</Text>
                     </Column>
                     <Column style={{ verticalAlign: 'middle', width: '50%' }}>
-                      <Text style={styles.amountNum}>
+                      <Text className="amount-num" style={styles.amountNum}>
                         {montant} <span style={styles.amountCurrency}>XAF</span>
                       </Text>
                     </Column>
@@ -384,8 +402,8 @@ export default function CyberZoneEmail({
                   { label: 'Date',                          value: date },
                 ].map(({ label, value }) => (
                   <Row key={label} style={styles.detailRow}>
-                    <Column><Text style={styles.detailLabel}>{label}</Text></Column>
-                    <Column><Text style={styles.detailValue}>{value}</Text></Column>
+                    <Column><Text className="detail-label" style={styles.detailLabel}>{label}</Text></Column>
+                    <Column><Text className="detail-value" style={styles.detailValue}>{value}</Text></Column>
                   </Row>
                 ))}
 
@@ -447,16 +465,16 @@ export default function CyberZoneEmail({
             </Section>{/* /bodyPad */}
 
             {/* ── 4. MAP ────────────────── */}
-            <div style={styles.mapWrap}>
+            <div className="map-wrap" style={styles.mapWrap}>
               <Img
                 src="https://raw.githubusercontent.com/cyberzoneAcademy/cyberzone-email-template/main/assets/map-douala.png"
                 alt="Carte Douala"
-                style={styles.mapImg}
+                style={{ ...styles.mapImg, maxWidth: '100%' }}
                 width="600"
                 height="320"
               />
               <div style={styles.locationCardWrap}>
-                <div style={styles.locationCard}>
+                <div className="location-card" style={styles.locationCard}>
                   <div style={{ textAlign: 'center', marginBottom: '8px' }}>
                     <MapPin size={40} color="#2EFFFF" strokeWidth={1.5} />
                   </div>
@@ -477,7 +495,7 @@ export default function CyberZoneEmail({
             </div>
 
             {/* ── 5. ICÔNES SOCIALES (dans la carte) ──── */}
-            <Section style={styles.socialBar}>
+            <Section className="social-bar" style={styles.socialBar}>
               <Row>
                 {[
                   { href: '#', label: 'Facebook',  icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3l-.5 3H13v6.95c5.05-.5 9-4.76 9-9.95z"/></svg> },
